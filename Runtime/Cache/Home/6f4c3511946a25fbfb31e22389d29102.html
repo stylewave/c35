@@ -1,0 +1,75 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>交易密码修改</title>
+<link href="/Public/Home1/css/css.css" rel="stylesheet" />
+<script src="/Public/Home1/js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<div class="topz mgz"></div>
+<div class="top xi40 cen bai bgGradient"><div class="icon2 fr"></div>交易密码修改<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/Public/Home1/images/1_02.png" /></a></div></div>
+
+<div class="mg bgbai  bradius mt20 infoShadow2">
+<!-- <div class="jieshou1 datum   xi24"><span class="data_txt">手机号码</span><span class="xisp fl"><input name="" type="text" class="bd5 xi24" placeholder="135468774322"></span></div>
+<div class="jieshou1 datum   xi24"><span class="data_txt">安全密码</span><span class="xisp fl"><input name="" type="password" class="bd5 xi24" placeholder="请输入安全密码"></span></div>
+<div class="jieshou1 datum   xi24"><span class="data_txt">再次确认</span><span class="xisp fl"><input name="" type="password" class="bd5 xi24" placeholder="请再次输入安全密码"></span></div>
+<div class="jieshou1 datum   xi24 "><span class="data_txt">手机验证码</span><span class="xisp fl"><input name="" type="text" class="bd5 xi24 " placeholder="手机验证码"></span><span><button class="btn1 xi22  bgGradient">发送验证码</button></span></div>
+ -->
+
+<div class="jieshou1 datum bgbai  xi26">
+		<span class="data_txt">交易密码</span>
+		<span class="xisp fl">
+			<input id="oldpaypassword" name="name" type="password" class="bd5 xi26" placeholder="请输入交易密码">
+		</span>
+	</div>
+	<div class="jieshou1 datum bgbai  xi26">
+		<span class="data_txt">新交易密码</span>
+		<span class="xisp fl">
+			<input id="newpaypassword" name="name" type="password" class="bd5 xi26" placeholder="请输入新交易密码">
+		</span>
+	</div>
+	<div class="jieshou1 datum bgbai  xi26">
+		<span class="data_txt">再次输入</span>
+		<span class="xisp fl">
+			<input id="repaypassword" type="password" class="bd5 xi26" placeholder="请再次输入新交易密码">
+		</span>
+	</div>
+
+	<div class="denglu2 mg cen"><input onClick="Update()" name="addbank" id="btn" type="button" class="an1 xi30 bai bgGradient" value="提交"></div>
+
+
+</div>
+
+<!--底部导航 -->
+<div class="buylist_menu xi20 cen">
+    <ul>
+			<li class="bg1"><a href="/index/index.html">首页</a></li>
+			<li class="bg2"><a href="/Article/index/id/21">资讯</a></li>
+			<li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+			<li class="bg4hover"><a href="/finance/index.html">我的</a></li>
+    </ul>
+    <!--判断hover-->
+</div>
+<div class="buylist_menuz mgz"></div>
+<script src="/Public/Home1/js/mjs.js"></script>
+
+<script>
+		function Update(){
+			$.post("<?php echo U('User/uppaypassword');?>",{oldpaypassword : $('#oldpaypassword').val(),newpaypassword : $('#newpaypassword').val(),repaypassword : $('#repaypassword').val() },function(data){
+				if(data.status==1){
+					alert(data.info);
+					window.location="<?php echo U('User/index');?>";
+				}else{
+					alert(data.info);
+					if(data.url){
+						window.location=data.url;
+					}
+				}
+			},"json");
+		}
+		</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>安全中心</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+	<!--新添加-->
+	<link href="/wap/css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+	<div class="topz mgz"></div>
+	<div class="top xi40 cen bai">认证中心<div class="topl"><a href="javascript:history.go(-1)"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div></div>
+	<div class=" mgz bgbai">
+		<div class="mgz bgbai  xi24">
+			<div class="buy shop exchange6">
+				<ul class="clearfix">
+					<a href="/user/nameauth/">
+						<li class="col-12 tra_border ">
+							<div class="fl col-2"><i class="fc exchange_icon1"></i></div>
+							<div class="fl col-7"><p class="xi22 bai">实名认证</p><p class="xi20 blue">个人资料</p></div>
+							<div class="fr col-3 hui tr"><i class="icon1"></i></div>
+						</li>
+					</a>
+					<a href="/User/bank/">
+						<li class="col-12 tra_border ">
+							<div class="fl col-2"><i class="fc exchange_icon2"></i></div>
+							<div class="fl col-7"><p class="xi22 bai">银行卡管理</p><p class="xi20 blue">个人资料</p></div>
+							<div class="fr col-3 hui tr"><i class="icon1"></i></div>
+						</li>
+					</a>
+					<!--<a href="idmoblie.html">
+						<li class="col-12 tra_border ">
+							<div class="fl col-2"><i class="fc exchange_icon3"></i></div>
+							<div class="fl col-7"><p class="xi22 bai">手机认证</p><p class="xi20 blue">个人资料</p></div>
+							<div class="fr col-3 hui tr"><i class="icon1"></i></div>
+						</li>
+					</a>-->
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--<div class="head head_white">
+		<div class="left"><a href="/" ><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+		<div class="title">认证中心</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0">
+		<div class="mgz bgbai2">
+		    <div class="  buy2  clearfix">
+		        <a href="/user/nameauth/"><ul class="bgbai clearfix">
+		        	<li class="col-3 "><i class="aico aico1 bgcolor1"><img align="absmiddle" src="/wap/img/aico1.png" /></i></li>
+		            <li class="col-7"><p>实名认证</p><p class="green2">已认证</p></li>
+		        </ul></a>
+		        <a href="/User/bank/"><ul  class="bgbai clearfix">
+		            
+		            <li class="col-3 "><i class="aico aico1 bgcolor2"><img align="absmiddle" src="/wap/img/aico2.png" /></i></li>
+		            <li class="col-7"><p>银行卡管理</p><p class="green2">已认证</p></li>
+		            
+		        </ul></a>
+		        <a href="" style=" display: none;"><ul class="bgbai clearfix">
+		            
+		            <li class="col-3 "><i class="aico aico1 bgcolor3"><img align="absmiddle" src="/wap/img/aico3.png" /></i></li>
+		            <li class="col-7"><p>支付宝绑定</p><p class="red2">未认证</p></li>
+		            
+		        </ul></a>
+		        <a href="" style=" display: none;"><ul class="bgbai clearfix">
+		            
+		            <li class="col-3 "><i class="aico aico1 bgcolor4"><img align="absmiddle" src="/wap/img/aico4.png" /></i></li>
+		            <li class="col-7"><p>手机认证</p><p class="green2">已认证</p></li>
+		            
+		        </ul></a>
+		    </div>
+		</div>
+		<div class="user_nav" style="display: none;">
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/user/nameauth/">
+						<img src="/wap/images/login_icon_user.png" class="user_icon_nav left">
+						<p>
+							实名认证<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right">
+							<i class="right fz_3-9 green"><img src="/wap/images/icon_succ2.png" class="icon_succ left">已认证</i>
+						</p>
+					</a>
+				</div>
+			</div>
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/user/moble/">
+						<img src="/wap/images/login_icon_tel.png" class="user_icon_nav left">
+						<p>
+							手机绑定<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right">
+							<empty name="user['moble']">
+								<i class="right fz_3-9 hui_d">马上绑定</i>
+							<else/>
+								<i class="right fz_3-9 hui_d">修改绑定</i>
+							</empty>
+						</p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear">
+					<div class="margin_lbian">
+						<a href="/User/bank/">
+							<img src="/wap/images/user_icon_trading.png" class="user_icon_nav left">
+							<p>银行卡号<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">添加修改</i></p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear" style='display:none;'>
+					<div class="margin_lbian">
+						<a href="/User/qianbao/">
+							<img src="/wap/images/user_icon_entrust.png" class="user_icon_nav left">
+							<p>钱包地址<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">添加修改</i></p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear">
+					<div class="margin_lbian">
+						<a href="/User/password/">
+							<img src="/wap/images/login_icon_pass.png" class="user_icon_nav left">
+							<p>登录密码<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">修改</i></p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear">
+					<div class="margin_lbian">
+						<a href="/User/paypassword/">
+							<img src="/wap/images/login_icon_passj.png" class="user_icon_nav left">
+							<p>交易密码<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">修改</i></p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+</body>
+</html>

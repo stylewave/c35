@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title>汇款信息</title>
+			<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="/wap/css/css.css">
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/cityselect.js"></script>
+		<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body class="bgbai">
+<!--新添加-->
+<link href="/wap/css/css.css" rel="stylesheet" />
+<!--endn 新添加-->
+<style type="text/css">
+.form_icon{background: none}
+.yzm_sms{border-color: #1b82d1;color: #1b82d1;}
+.sol-12{width:100%;}
+.form_icon{   }
+.form_box{height: auto;}
+    .top{height: auto}
+</style>
+<div class="container">
+	<!--头部-->
+    <div class="topz mgz"></div>
+    <div class="top xi40 cen bai">汇款信息<div class="topl"><a href="/finance/mywt"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div></div>
+	<!--<div class="head head_white">
+		<div class="left">
+			<a href="/finance/mywt"  ><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">汇款信息</div>
+		<div class="right">
+		</di-->v>
+	</div>
+	<div class="pb_0">
+		<div class="margin_lbian">
+			<form id="form" name="form">
+				
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">支付宝收款二维码：</i>
+					<div class="sol-12">
+						<img src="{$UserBank[0].alipay_qrcode}" width="300">
+					</div>
+				</div>
+					<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">微信收款二维码：</i>
+					<div class="sol-12">
+						<img src="{$UserBank[0].weixin_qrcode}" width="300">
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">以太坊收款地址：</i>
+					<div class="sol-12" style="color: #fff">
+						{$UserBank[0].qianbao}
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   red">开户银行：</i>
+					<div class="sol-12" style="color: #fff">
+						{$UserBank[0].bank}
+					</div>
+				</div>
+				
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   red">开户姓名：</i>
+					<div class="sol-12" style="color: #fff">
+						{$truename}
+					</div>
+				</div>
+			
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">开户省：</i>
+					<div class="sol-12" style="color: #fff">
+						{$UserBank[0].bankprov}
+					</div>
+				</div>
+					<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">开户市：</i>
+					<div class="sol-12" style="color: #fff">
+						{$UserBank[0].bankcity}
+					</div>
+				</div>
+			<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">支行</i>
+					<div class="sol-12" style="color: #fff">
+						{$UserBank[0].bankaddr}
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">银行卡号：</i>
+					<div class="sol-12" style="color: #fff">
+						{$UserBank[0].bankcard}
+					</div>
+				</div>
+					<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">手机号：</i>
+					<div class="sol-12" style="color: #fff">
+						{$moble}
+					</div>
+				</div>
+			
+			</form>
+		</div>
+		
+	</div>
+
+</div>
+<script>
+        var trans_lock = 0;
+
+var tid='';
+
+function getbank(userid)
+{
+$.getJSON("/Ajax/getUserBank?userid="+userid+"&t="+Math.random(),function(data){
+            if(data){
+                if(data['BankOne']){
+                    var list='<table>';
+                    var type='';
+                    var typename='';
+                    for( var i in data['BankOne']){
+                    
+                     //list+='<tr ><td class="buy"   width="100">{:L('finance_wallet_address')}：</td><td class="buy"   >'+data['BankOne'][i]['qianbao']+'</td></tr>';
+                        list+='<tr ><td class="buy"   width="120">微信：</td><td class="buy"  onclick=\'viewewm("微信二维码","'+data['BankOne'][i]['weixin_qrcode']+'")\'>查看二维码</td></tr>';
+                       list+='<tr ><td class="buy"   width="70">支付宝：</td><td class="buy"  onclick=\'viewewm("支付宝二维码","'+data['BankOne'][i]['alipay_qrcode']+'")\'>查看二维码</td></tr>';
+                         list+='<tr ><td class="buy"   width="70">以太坊地址：</td><td class="buy"   >'+data['BankOne'][i]['yitai']+'</td></tr>';
+
+                            list+='<tr ><td class="buy"   width="70">{:L('finance_open_bank')}：</td><td class="buy"   >'+data['BankOne'][i]['bank']+'</td></tr>';
+                                list+='<tr ><td class="buy"   width="70">{:L('finance_open_province')}：</td><td class="buy"   >'+data['BankOne'][i]['bankprov']+'</td></tr>';
+                                    list+='<tr ><td class="buy"   width="70">{:L('finance_open_city')}：</td><td class="buy"   >'+data['BankOne'][i]['bankcity']+'</td></tr>';
+                                        list+='<tr ><td class="buy"   width="70">{:L('finance_open_branch')}：</td><td class="buy"   >'+data['BankOne'][i]['bankaddr']+'</td></tr>';
+                                            list+='<tr ><td class="buy"   width="70">{:L('finance_open_name')}：</td><td class="buy"   >'+data['BankOne'][i]['truename']+'</td></tr>';
+                                                list+='<tr ><td class="buy"   width="70">{:L('finance_open_bank_number')}：</td><td class="buy"  >'+data['BankOne'][i]['bankcard']+'</td></tr>';
+                            list+='<tr ><td class="buy"   width="65">{:L('finance_phone')}：</td><td class="buy"   >'+data['BankOne'][i]['moble']+'</td></tr>';
+                    }
+                    list+='</table>'
+                       layer.alert(list,             {title: '{:L('finance_open_bank_info')}',});
+                     
+                }
+                else{
+                layer.msg(data.info,{icon : 1 });
+                }
+            }
+        });
+}
+
+function viewewm(title,url){
+	if(url=='null'){
+	   layer.msg("该用户未上传"+title,{icon : 7 });
+	}else{
+	   layer.alert('<img src="'+url+'" width="100%">',{title: title});
+	}
+}
+function upimg(url)
+{
+
+    // $.post("{:U('Trade/file_type')}",{filename:url},function(data){
+        
+            // if(data.info==1){
+
+
+                var json='';
+                 layer.photos({
+                    photos: {
+                  "status": 1,
+                  "msg": "",
+                  "title": "{:L('finance_certificate')}",
+                  "id": 8,
+                  "start": 0,
+
+                  "data": [
+                    {
+                      "alt": "",
+                      "pid": 109,
+                      "src": url,
+                      "thumb": ""
+                    }
+                  ]
+                } //格式见API文档手册页
+                    ,shift: 5 //0-6的选择，指定弹出图片动画类型，默认随机
+                  });
+            
+            // }else{
+            //     layer.msg('图片类型不正确，请联系买家重新上传凭证',{icon : 2 });
+            // }
+        // });
+
+
+}
+function up(id)
+{
+tid=id;
+
+document.getElementById('inputfile').click();
+}
+$(document).ready(function () {
+        //响应文件添加成功事件
+        $("#inputfile").change(function () 
+        {
+        
+        if(trans_lock){
+            layer.msg('{:L('finance_repeat')}',{icon : 2 });
+            return;
+        }
+         trans_lock = 1;
+         layer.load(2);
+        //此处演示关闭
+        
+        
+        
+            //创建FormData对象
+            var data = new FormData();
+            //为FormData对象添加数据
+            $.each($('#inputfile')[0].files, function (i, file) {
+                data.append('upload_file' + i, file);
+            });
+
+
+            //发送数据
+            $.ajax({
+                url: '/Home/Trade/tradeImage',
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false,     //不可缺参数
+                processData: false,     //不可缺参数
+                success: function (data) {
+                    if (data) {
+                        
+                        $.post("{:U('Trade/ofcupimg')}",{id : tid,url:data },function(data){
+                        layer.closeAll('loading');
+            trans_lock = 0;
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='{:U('Finance/mywt')}'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+                    }
+                },
+                error: function () {
+                    alert('{:L('finance_upload_error')}');
+                    $(".loading").hide();   //加载失败移除加载图片
+                }
+            });
+
+        });
+    });
+$("#type-selectTest,#status-selectTest,#market-selectTest").change(function(){
+        var type=$("#type-selectTest option:selected").val();
+        var status=$("#status-selectTest option:selected").val();
+        var market=$("#market-selectTest option:selected").val();
+        window.location='/Finance/mywt/type/'+type+'/status/'+status+'/market/'+market+'.html';
+    });
+
+    $('.cancel').click(function(){
+        $.post("{:U('Trade/chexiao')}",{id : $(this).attr('id'), },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='{:U('Finance/mywt')}'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+    });
+
+    $('.pipei').click(function(){
+    
+    if(trans_lock){
+            layer.msg('{:L('finance_repeat')}',{icon : 2 });
+            return;
+        }
+    trans_lock = 1;
+        layer.load(2);
+        //此处演示关闭
+        setTimeout(function(){
+          layer.closeAll('loading');
+          trans_lock = 0;
+        }, 10000);
+    
+    
+        $.post("{:U('Trade/upTrade2')}",{id : $(this).attr('id'), },function(data){
+            layer.closeAll('loading');
+            trans_lock = 0;
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='{:U('Finance/mywt')}'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+    });
+    $('.fukuan').click(function(){
+        $.post("{:U('Trade/ofcfukuan')}",{id : $(this).attr('id'), },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='{:U('Finance/mywt')}'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+    });
+    $('.buycancel').click(function(){
+        $.post("{:U('Trade/ofcbuy_chexiao')}",{id : $(this).attr('id'), },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='{:U('Finance/mywt')}'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+        $(function () {
+            //nav标记
+            var currUrl = window.location.toString();
+            if (currUrl.indexOf('#') > 0) {
+                $.cookie('nav_index', 1, { path: '/' });
+            } else if (currUrl.indexOf('/login') > 0 || currUrl.indexOf('#') > 0 || currUrl.indexOf('/page/') > 0 || currUrl.indexOf('/fee') > 0) {
+                $.cookie('nav_index', 9, { path: '/' });
+            } else if (currUrl.indexOf('/coins') > 0) {
+                $.cookie('nav_index', 4, { path: '/' });
+            }
+            $(".bter-nav").children("li").click(function () {
+                $.cookie('nav_index', $(this).index(), { path: '/' });
+            }).eq($.cookie('nav_index')).addClass("nav-active");
+            $(".user-log-out a,.more-lan a").click(function () {
+                $.cookie('nav_index', 0, { path: '/' });
+            });
+            //用户等级
+            var pb = $("#ProgressBar"), pbWidth = pb.width(), loginbar = $("#topLoginBar"), tmenu = $("#tierMenu"), barcon = $("#pbCon"), barmark = $("#pbCon").find("i"), pbar = $("#proBar"), fbar = $("#fproBar"), pro_val = '';
+            loginbar.hover(function () {
+                tmenu.stop().slideDown(200);
+                $(this).stop().css("color", "#f80");
+                barmark.css("opacity", "0");
+                pbar.animate({ width: pro_val + '%' }, 800);
+            }, function () {
+                tmenu.stop().slideUp(100);
+                $(this).stop().css("color", "#fff");
+                barmark.css("opacity", "1");
+                pbar.css('width', '0');
+            });
+            tmenu.css("width", pbWidth);
+            fbar.animate({ width: pro_val + '%' }, 800);
+
+            $.fn.animateProgress = function (progress, callback) {
+                return this.each(function () {
+                    $(this).animate({
+                        width: progress + '%'
+                    }, {
+                        duration: 800,
+                        easing: 'swing',
+                        step: function (progress) {
+                            $('.value').text(Math.ceil(progress) + '%');
+                        },
+                        complete: function (scope, i, elem) {
+                            if (callback) {
+                                callback.call(this, i, elem);
+                            };
+                        }
+                    });
+                });
+            };
+            if (pro_val == '') barcon.animateProgress(0); else barcon.animateProgress(pro_val);
+
+            //页面高度
+            var lb = $(".leftbar"), mc = $(".main_content"), lh = lb.height(), mh = mc.height();
+            if (lh < mh) { lb.css("height", mh) }
+
+            //右侧客户服务
+            $(".side-sev ul li").hover(function () {
+                var _this = $(this);
+                _this.find(".sidebox").stop().animate({ "width": "165px" }, 2).css({ "background": "#009173" });
+            }, function () {
+                $(this).find(".sidebox").stop().animate({ "width": "45px" }, 2).css({ "background": "none" });
+            });
+
+            $(".sideweixin").hover(function () {
+                $(".wx-code span").stop().show();
+                $(this).stop();
+                $(".wx-code").stop().html('<img width="120" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJgAAACYAQMAAAAiDLJiAAAABlBMVEUrNDz///8m7jN3AAABkklEQVR4XrXWMc60IBSF4ddYUN4dDBsxsi0LE0mmcFtM3IizA0oKw/ln/JNpvhI9HU/JIfeC/qbJMjA+LLsjVHIBfJtJx9gpOyWvXBbVG6wwjICTdm9lYmy3UFHsU7dzjY2YCkG73WTStwmmPj38eS8t9uvS1uf23nMB2kzf7Ab9Jtl5utyyIviMi72EKwO+yVTclrqcmcGbi3RqM6DbjWnR2Rv4yy3jlDrlRdsObj06NZmYhhFYjlB9ZtGrzXJZlMDWg05ZSuEOc6mrZmUeICsGNZpiXx+m9am3cGsafZOpuANQmcN7Bwi63LKL/WuHaR46qXyK8I1WhlBNZeYBTqnVpK0+yPTSb25cbCoQ3lnrc6uYYi81WXYxvHbTqm8+h1aTUveWdIAHtyV/g326rKh8uzQXBxrN6QCkc7ZDeKnJJKliLDFUj8oQrrf/+wg774AyNZt0jJjWCKAy4Bvst89xMVSAkG6yx/mSK9kpje0WJIszXuZin1rs9wcxKXWSK3CDASNmcR78OYuDmkx/crn9A2cj27YK/b1/AAAAAElFTkSuQmCC" alt="比特儿微信" /><span>比特儿微信</span>').animate({ "width": "120px" }, 200).css({ "padding": "10px", "border-width": "1px" })
+            }, function () {
+                $(".wx-code span").stop().hide();
+                $(this).stop();
+                $(".wx-code").stop().animate({ "width": "0" }, 200).css({ "padding": "0", "border-width": "0" })
+            });
+            $("#bottomWXli").hover(function () {
+                $(".wx-bottom").show()
+            }, function () {
+                $(".wx-bottom").hide()
+            });
+
+            //全站重要通知
+            var notyContent = '';
+
+            function notyCookie() { //设置通知cookie
+                var noticeMsg = $("#siteNotyCon").text();
+                $.cookie('notice', noticeMsg, { expires: 365, path: '/' });
+            }
+
+            var annCookie = $.cookie('notice');
+            if (annCookie != notyContent && notyContent != '') { //通知有更新时
+                var sNoty = $("#siteNoty").noty({
+                    text: "【重要通知】：<a id='siteNotyCon' href='#' target='_blank'>" + notyContent + "</a>",
+                    type: 'error',
+                    layout: 'top',
+                    theme: 'bterNotyTheme',
+                    closeWith: ['button'],
+                    animation: { speed: 0 },
+                    callback: {
+                        afterShow: function () {
+                            $("#siteNotyCon").click(function () {
+                                notyCookie();
+                                sNoty.close();
+                            })
+                        },
+                        onClose: function () {
+                            $("#siteNoty").animate({ height: 0 }, 100).css("border", "none");
+                            notyCookie()
+                        }
+                    }
+                });
+            }
+
+        });
+
+        //backtotop
+        (function () {
+            var $backToTopTxt = "^", $backToTopEle = $('<div class="backToTop"></div>').appendTo($("body"))
+                    .text($backToTopTxt).click(function () {
+                        $("html, body").animate({ scrollTop: 0 }, 500);
+                    }), $backToTopFun = function () {
+                        var st = $(document).scrollTop(), winh = $(window).height();
+                        (st > 0) ? $backToTopEle.show() : $backToTopEle.hide();
+                        //IE6下的定位
+                        if (!window.XMLHttpRequest) {
+                            $backToTopEle.css("top", st + winh - 166);
+                        }
+                    };
+            $(window).bind("scroll", $backToTopFun);
+            $(function () { $backToTopFun(); });
+        })();
+    </script>
+</body>
+</html>

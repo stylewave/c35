@@ -1,0 +1,212 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>添加银行卡</title>
+<link href="/Public/Home1/css/css.css" rel="stylesheet" />
+<script src="/Public/Home1/js/jquery-1.7.2.min.js"></script>
+
+<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script type="text/javascript" src="/Public/Home/js/cityselect.js"></script>
+</head>
+
+<body>
+<div class="topz mgz"></div>
+<div class="top xi40 cen bai bgGradient"><div class="icon2 fr">
+    <a href="">+</a></div>添加银行卡<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/Public/Home1/images/1_02.png" /></a>
+    </div></div>
+<div class="mgz   ">
+    
+	<!-- <div class="mgz2 mt20"><span class="bank1 hui">请绑定持卡人本人的银行卡</span></div>
+    <div class="mg infoShadow2">
+    <div class="jieshou1 datum bgbai  xi24"><span class="data_txt">持卡人</span><span class="xisp fl "><input name="" type="text" class="bd5 xi24 hui4" placeholder="" value="穆申峰"></span></div>
+    <div class="jieshou1 datum bgbai  xi24"><span class="data_txt">卡类型</span><span class="xisp fl "><input name="" type="text" class="bd5 xi24 hui4" placeholder="" value="中国建设银行储蓄卡"></span></div>
+    <div class="jieshou1 datum bgbai  xi24"><span class="data_txt">卡号</span><span class="xisp fl "><input name="" type="text" class="bd5 xi24 hui4" placeholder="" value="6356  2254"></span><span class="fr"><a href="#" class="fr"><img src="/Public/Home1/images/icon9.png" width="36" /></a></span></div>
+    </div>
+    <br>
+    <div class="mg infoShadow2">
+    <div class="jieshou1 datum bgbai xi24 mt20"><span class="data_txt">手机号</span><span class="xisp fl"><input name="" type="text" class="bd5 xi24 hui4" placeholder="" value="185******31"></span><span class="fr"><a href="#" class="fr"><img src="/Public/Home1/images/icon9.png" width="36" /></a></span></div>
+    
+    <div class="jieshou1 datum bgbai  xi24 "><span class="data_txt">校验码</span><span class="xisp fl"><input name="" type="text" class="bd5 xi24" placeholder="填写校验码"></span><span><button class="btn1 xi20 bgGradient">发送验证码</button></span></div>
+     </div>
+    <div class="denglu2 mg cen"><input name="" type="button" class="an1 xi26 bai bgGradient" value="提交" onclick="javascript:location='add.html'"></div> -->
+
+    <div class="mgz2"><span class="bank1 hui">请绑定持卡人本人的银行卡</span></div>
+
+    <form id="form" name="form">
+        <div class="jieshou1 datum bgbai  xi24"><span class="data_txt">持卡人</span><span class="xisp fl "><input name="" type="text" class="bd5 xi24 hui4" placeholder="请输入持卡人姓名" value=""></span></div>
+        <div class="jieshou1 datum bgbai  xi24">
+            <span class="data_txt">选择银行：</span>
+            <span class="xisp fl ">
+                <select  name="bank"  id="bank_bank" class="selectS hui4">
+                    <?php if(is_array($UserBankType)): $i = 0; $__LIST__ = $UserBankType;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo['title']); ?>"><?php echo ($vo['title']); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+            </span>
+        </div>
+        <div class="jieshou1 datum bgbai  xi24">
+            <span class="data_txt">银行名称：</span>
+            <span class="xisp fl ">
+                <input id="bank_name" type="text" class="bd5 xi24 hui4" placeholder="请输入银行名称" value="">
+            </span>
+        </div>
+        <div class="jieshou1 datum bgbai  xi24">
+            <span class="data_txt">开户省市：</span>
+            <span class="xisp fl " id="city_1">
+                <select class="selectS hui4 prov" id="bank_bankprov" name="prov" style="width: 110px;"></select>
+                <select class="city selectS hui4" id="bank_bankcity" name="city" style="width: 110px; display: none;"></select>
+            </span>
+        </div>
+        <div class="jieshou1 datum bgbai  xi24">
+            <span class="data_txt">开户支行：</span>
+            <span class="xisp fl ">
+                <input id="bank_bankaddr" name="bank_bankaddr" type="text" class="bd5 xi24 hui4" placeholder="请输入详细的开户支行名称" value="">
+            </span>
+        </div>
+
+        <div class="jieshou1 datum bgbai  xi24">
+            <span class="data_txt">银行卡号：</span>
+            <span class="xisp fl ">
+                <input id="bank_bankcard" name="bank_bankcard" type="text" class="bd5 xi24 hui4" placeholder="请输入银行卡号" value="">
+            </span>
+            <span class="fr">
+                <a href="javascript:void(0)" onclick="delBankCard()" class="fr">
+                    <img src="/wap/images/icon9.png" width="36" />
+                </a>
+            </span>
+        </div>
+
+        <div class="jieshou1 datum bgbai  xi24">
+            <span class="data_txt">交易密码：</span>
+            <span class="xisp fl ">
+                <input type="password" id="bank_paypassword" name="bank_paypassword" class="bd5 xi24 hui4" placeholder="请输入交易密码" value="">
+            </span>
+            <span class="fr">
+                <a href="javascript:void(0)" onclick="delPayWord()" class="fr">
+                    <img src="/wap/images/icon9.png" width="36" />
+                </a>
+            </span>
+        </div>
+        <br>
+        <div class="denglu2 mgz cen"><input onclick="Update()"  name="addbank" id="addbank"  type="button" class="an1 xi26 bai bgGradient" value="提交" ></div>
+        <div class="form_link red" style="padding:10px;">
+            <img src="/wap/images/login_icon_tan.png" class="icon_tan">为了您能快速提现，请详细填写您的银行卡信息作为默认提款账号,请仔细核对您的银行卡信息和持卡人信息等内容
+        </div>
+    </form>
+
+
+</div>
+<!--底部导航 -->
+<div class="buylist_menu xi20 cen">
+    <ul>
+            <li class="bg1"><a href="/index/index.html">首页</a></li>
+            <li class="bg2"><a href="/Article/index/id/21">资讯</a></li>
+            <li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+            <li class="bg4hover"><a href="/finance/index.html">我的</a></li>
+    </ul>
+    <!--判断hover-->
+</div>
+<div class="buylist_menuz mgz"></div>
+<script src="/Public/Home1/js/mjs.js"></script>
+
+<script type="text/javascript">
+	
+    $("#city_1").citySelect({nodata:"none",required:false});
+   
+    $('#dialogBoxShadow').height($(document).height());
+    function closeAddress(){
+     $("#withdrawCnyAddress").hide();
+     $("#dialogBoxShadow").hide();
+    }
+    function showA(){
+     $("#withdrawCnyAddress").show();
+     $("#dialogBoxShadow").show();
+    }
+   
+    function delBankCard() {
+        $('#bank_bankcard').val('');
+    }
+   
+    function delPayWord() {
+        $('#bank_paypassword').val('');
+    }
+   
+   
+       
+    function Update(){
+     
+     var name=$('#bank_name').val();
+     var bank=$('#bank_bank option:selected').val();
+     var bankprov=$('#bank_bankprov option:selected').val();
+     var bankcity=$('#bank_bankcity option:selected').val();
+     var bankaddr=$('#bank_bankaddr').val();
+     var bankcard=$('#bank_bankcard').val();
+     var paypassword=$('#bank_paypassword').val();
+     
+     
+     if(name==""||name==null){
+     alert('请输入银行名称');
+      return false;
+     }
+     if(bankaddr==""||bankaddr==null){
+     alert('请输入开户支行');
+      return false;
+     }
+     if(bankcard==""||bankcard==null){
+     alert('请输入银行账号');
+      return false;
+     }
+     if(paypassword==""||paypassword==null){
+     alert('请输入交易密码');
+      return false;
+     }
+     $.post("<?php echo U('User/upbank');?>",{type:1,name:name,bank:bank,bankprov:bankprov,bankcity:bankcity,bankaddr:bankaddr,bankcard:bankcard,paypassword:paypassword},function(data){
+      if(data.status==1){
+      alert(data.info);
+       window.location="<?php echo U('User/bank');?>";
+      }else{
+       alert(data.info);
+       if(data.url){
+        window.location=data.url;
+       }
+      }
+     },"json");
+     
+    }
+   
+    function UpdateB(id){
+     layer.config({
+      extend: 'extend/layer.ext.js'
+     });
+     layer.ready(function () {
+      //默认prompt
+      layer.prompt({
+       title: '输入交易密码，并确认',
+       formType: 1},function(val){
+       if (val) {
+        //需要执行的方法
+        $.post("<?php echo U('User/delbank');?>",{type:2,id:id,paypassword:val},function(data){
+         if(data.status==1){
+          layer.msg(data.info,{icon:1});
+          window.location="<?php echo U('User/bank');?>";
+         }else{
+          layer.msg(data.info,{icon:2});
+          if(data.url){
+           window.location=data.url;
+          }
+         }
+        },"json");
+   
+   
+       };
+      });
+   
+     });
+   
+   
+    }
+   </script>
+
+</body>
+</html>

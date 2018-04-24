@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>实名认证</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<meta content="telephone=no" name="format-detection" />
+	<!--<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />-->
+	<!--<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />-->
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+	<style type="text/css">
+	.mg{width: 100% !important;}
+	</style>
+	<!--新添加-->
+	<link href="/wap/css/css.css" rel="stylesheet" />
+	<!--endn 新添加-->
+</head>
+<body>
+	<div class="container">
+		<div class="topz mgz"></div>
+		<div class="top xi40 cen bai">实名认证<div class="topl"><a href="/user/index/"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div></div>
+
+		<div class=" mgz bgbai">
+			<div class="mgz bgbai  xi24">
+				<div class="buy shop exchange7">
+					<ul class="clearfix">
+						<a href="javascript:void(0);">
+							<li class="col-12 tra_border bai">
+								<div class="fl col-3">真实姓名</div>
+								<div class="fl col-6"><p class="xi22 ">{$user.truename}</p></div>
+								<div class="fr col-3 hui tr"><span class="blue">已认证</span></div>
+							</li>
+						</a>
+						<a href="javascript:void(0);">
+							<li class="col-12 tra_border bai">
+								<div class="fl col-3">证件类型 </div>
+								<div class="fl col-6"><p class="xi22 ">身份证</p></div>
+								<div class="fr col-3 hui tr"> </div>
+							</li>
+						</a>
+						<a href="javascript:void(0);">
+							<li class="col-12 tra_border bai">
+								<div class="fl col-3">身份证号</div>
+								<div class="fl col-6"><p class="xi22 ">{$user.idcard}</p></div>
+								<div class="fr col-3 hui tr"> </div>
+							</li>
+						</a>
+						<a href="javascript:void(0);">
+							<li class="col-12 tra_border bai">
+								<div class="fl col-3">认证时间</div>
+								<div class="fl col-6"><p class="xi22 ">{$user['addtime']|date='Y-m-d',###}</p></div>
+								<div class="fr col-3 hui tr"> </div>
+							</li>
+						</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--<div class="head head_white">
+			<div class="left"><a href="/user/index/"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+			<div class="title">实名认证</div>
+			<div class="right"></div>
+		</div>-->
+		<!-- <div class="main">
+			<div class="denglu1 bgbai mg ">真实姓名：<span class="xisp">张三</span><span class="fr" style="color: #64aae0">已认证</span></div>
+			<div class="denglu1 bgbai mg ">证件类型：<span class="xisp">458254******1817</span></div>
+			<div class="denglu1 bgbai mg ">身份证号：<span class="xisp">458254******1817</span></div>
+			<div class="denglu1 bgbai mg ">认证时间：<span class="xisp">2017-8-19 21.25.50</span></div>
+		</div> -->
+		<!--<div class="main">
+			<div class="margin_bian">
+				<div class="real_succ center green">
+					<img src="/wap/images/icon_succ.png">
+					<p>实名认证成功！</p>
+					<span>{$user['addtime']|date='Y-m-d',###}</span>
+				</div>
+
+				<div class="real_list">
+					<div class="real_box">
+						证件类型：<span>身份证</span>
+					</div>
+					<div class="real_box">
+						认证姓名：<span>{$user.truename}</span>
+					</div>
+					<div class="real_box">
+						证件号码：<span>{$user.idcard}</span>
+					</div>
+				</div>
+				<div class="form_link real_point red clear">
+					<img src="/wap/images/login_icon_tan.png" class="icon_tan left">
+					<p class="left">如需更改实名认证信息，请联系客服</p>
+				</div>
+
+			</div>
+		</div>-->
+		
+	</div>
+</body>
+</html>

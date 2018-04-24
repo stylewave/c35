@@ -1,0 +1,103 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>个人中心</title>
+<link href="/Public/Home1/css/css.css" rel="stylesheet" />
+<script src="/Public/Home1/js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body >
+<div class="mgz2 bgbai personal clearfix">
+	<div class="personal_title cen clearfix"><h1>个人中心</h1></div>
+    <div class="personal_center xi20 clearfix">
+    	<div class="personal_nav1 clearfix">
+            <div class="personal_center_img">
+                <p><a href="mImg.html"><img align="absmiddle" src="/Public/Home1/images/img4.jpg" /></a></p>
+                <span class="yellow3">账户</span>
+                <p><a href="" class="bai"><?php echo (session('userName')); ?></a></p>
+                
+            </div>
+            
+		</div>
+    </div>
+</div>
+<div class=" mgz">
+<div class="mgz bgbai bgShadow">
+	<div class="wallet3 cen clearfix hui4 pt20">
+    	<ul>
+                <li class="col-4">可用<p class=" xi28 bai colorGradient"><?php echo (NumToStr($coinList['fcc']['xnb'])); ?></p></li>
+                <li class="col-4">冻结<p class="xi28 bai colorGradient"><?php echo (NumToStr($coinList['fcc']['xnbd'])); ?></p></li>
+                <li class="brnone col-4">信用值<p class=" xi28 bai colorGradient"><?php echo (NumToStr($integral)); ?></p></li>
+
+        	<!-- <li class="col-4">可发送帐户<p class=" xi28 bai colorGradient">320000.00</p></li>
+            <li class="col-4">持币总量<p class=" xi28 bai colorGradient">44000.00</p></li>
+            <li class="brnone col-4">能量值<p class=" xi28 bai colorGradient">3074</p></li> -->
+        </ul>
+    </div>
+</div>
+<div class="mgz xi20 monly2 mt20 ">
+	<ul class="clearfix md20 bradius infoShadow2">
+    	<!-- <a href="withdraw2.html"><li><i class="monly_icon1"></i>
+        	<p class="hui5">金钱管理</p>
+        </li></a>
+        <a href="exchangeRecord.html"><li><i class="monly_icon2"></i>
+        	<p class="hui5">成交查询</p>
+		</li></a> -->
+		
+		<a href="/finance/myzr/"><li><i class="monly_icon1"></i><p class="hui5">我要接收</p></li></a>
+		<a href="/finance/myzc/"><li><i class="monly_icon2"></i><p class="hui5">我要发送</p></li></a>
+        <!-- <a href="#"><li class="brnone"><i class="monly_icon3"></i>
+        	<p class="hui5">我的奖励</p>
+        </li></a> -->
+        <a href="/finance/mywt.html"><li class="bbnone"><i class="monly_icon4"></i>
+        	<p class="hui5">委托管理</p>
+        </li></a>
+        <a href="/finance/mycj.html"><li class="bbnone"><i class="monly_icon5"></i>
+        	<p class="hui5">成交查询</p>
+        </li></a>
+        <a href="/user/qrcode.html"><li class="bbnone brnone"><i class="monly_icon6"></i>
+        	<p class="hui5">收款二维码</p>
+        </li></a>
+        <a href="/user/bank.html"><li class="bbnone brnone"><i class="monly_icon7"></i>
+        	<p class="hui5">我的银行</p>
+        </li></a>
+        <!-- <a href="exchange.html"><li class="bbnone brnone"><i class="monly_icon8"></i>
+        	<p class="hui5">委托买入</p>
+        </li></a> -->
+        <!-- <a href="exchange2.html"><li class="bbnone brnone"><i class="monly_icon9"></i>
+        	<p class="hui5">委托卖出</p>
+        </li></a> -->
+        <a href="/User/index.html"><li class="bbnone brnone"><i class="monly_icon10"></i>
+        	<p class="hui5">认证中心</p>
+        </li></a>
+        <a href="/User/paypassword.html"><li class="bbnone brnone"><i class="monly_icon11"></i>
+        	<p class="hui5">交易密码</p>
+        </li></a>
+        <a href="/User/password.html"><li class="bbnone brnone"><i class="monly_icon12"></i>
+        	<p class="hui5">修改密码</p>
+        </li></a>
+    </ul>
+</div>
+
+</div>
+
+
+<!--底部导航 -->
+<div class="buylist_menu xi20 cen">
+    <ul>
+			<li class="bg1"><a href="/index/index.html">首页</a></li>
+			<li class="bg2"><a href="/Article/index/id/21">资讯</a></li>
+			<li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+			<li class="bg4hover"><a href="/finance/index.html">我的</a></li>
+    </ul>
+    <!--判断hover-->
+</div>
+
+<div class="buylist_menuz mgz"></div>
+<script src="/Public/Home1/js/mjs.js"></script>
+
+
+</body>
+</html>

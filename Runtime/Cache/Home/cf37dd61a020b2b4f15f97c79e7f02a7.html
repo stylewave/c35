@@ -1,0 +1,226 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>注册<?php echo ($C['web_name']); ?></title>
+	<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" href="/wap/css/css.css" type="text/css">
+	<!--<link href="/wap/css/global.css" rel="stylesheet" type="text/css" />-->
+	<!--<link rel="stylesheet" type="text/css" href="/wap/css/style.css" />-->
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css" />
+	<script type="text/javascript" src="/Public/Home/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/Public/Home/js/jquery.flot.js"></script>
+	<script type="text/javascript" src="/Public/Home/js/jquery.cookies.2.2.0.js"></script>
+	<script type="text/javascript" src="/Public/layer/layer.js"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+</head>
+<style>
+	.data_txt{ text-align:right;margin-right:20px;}
+	.xisp{width:400px;}
+	.jieshou1 span em{color:#f00;padding-left:5px;}
+	.top{height: auto}
+	.form_link{margin:.3rem 0px 0px;font-size:.36rem;}
+	.clear{zoom:1}
+	.clear:after{display:block;content:"";clear:both}
+	.align-right{text-align: right!important;}
+	.right{float:right!important;}
+	.wb_100{width: 100%!important;}
+	.gfs{color:#EB3F3F!important}
+	.icon_select{width:.4rem;height:.4rem;}
+</style>
+<body class="bgbai">
+<div class="container">
+	<div class="topz mgz"></div>
+	<div class="top xi40 cen bai">
+		<div class="icon2 fr"></div>
+	   <span>注册成为<?php echo ($C['web_name']); ?>会员</span>	<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div>
+	</div>
+	<!--<div class="head head_login">
+		<div class="left">
+			<a onclick="history.go(-1)"><img src="/wap/images/login_icon_arrow.png" class="icon_cha"></a>
+		</div>
+		<div class="title">注册成为<?php echo ($C['web_name']); ?>会员</div>
+		<div class="right">
+		</div>
+	</div>-->
+	<div class="mgz bgbai bai ">
+		<form id="form" method="post">
+			<div class="jieshou1 datum bgbai mg xi24">
+				<span class="data_txt">用户姓名<em>*</em></span>
+				<span class="xisp fl">
+					<input id="regtruename" name="regtruename" type="text" class="bd5 xi24" placeholder="输入真实姓名">
+				</span>
+			</div>
+			<div class="jieshou1 datum bgbai mg xi24">
+				<span class="data_txt">身份证号123<em>*</em></span>
+				<span class="xisp fl">
+					<input id="regidcard" name="regidcard" type="text" class="bd5 xi24" placeholder="输入身份证号">
+				</span>
+			</div>
+			<!--<div class="form_link clear">
+				<span class="align-right right wb_100"><font color="red">为了资金安全和提现正确到账请您完成实名认证</font></span>
+			</div>-->
+			<div class="jieshou1 datum bgbai mg xi24">
+				<span class="data_txt">交易密码<em>*</em></span>
+				<span class="xisp fl">
+					<input name="paypassword" id="paypassword" to_empty="1" type="password" class="bd5 xi24" placeholder="请设置重交易密码">
+				</span>
+			</div>
+			<div class="jieshou1 datum bgbai mg xi24">
+				<span class="data_txt">确认密码<em>*</em></span>
+				<span class="xisp fl">
+					<input name="repaypassword" id="repaypassword" to_empty="1" type="password" class="bd5 xi24" placeholder="请设置重复交易密码">
+				</span>
+			</div>
+			<div class="jieshou1 datum bgbai mg xi24">
+				<span class="data_txt">银行卡号<em>*</em></span>
+				<span class="xisp fl">
+					<input id="bankcard" name="bankcard" type="text" class="bd5 xi24" placeholder="输入银行卡号">
+				</span>
+			</div>
+			<div class="jieshou1 datum bgbai mg xi24">
+				<span class="data_txt">安全邮箱<em>*</em></span>
+				<span class="xisp fl">
+					<input id="regemail" name="regemail" type="text" class="bd5 xi24" placeholder="输入安全邮箱">
+				</span>
+			</div>
+			<div class="denglu2 mgz cen"><input name="login" id="login" onclick="Update();" type="button" class="an1 xi24 bai" value="完成注册"></div>
+			<!--<div class="form_link clear" style="text-align: center">
+				<span class="gfs"><img src="/wap/images/login_icon_select.png" class="icon_select"><a>为保障您的资金安全，请务必牢记交易密码</a></span>
+			</div>-->
+		</form>
+
+
+
+
+
+
+
+	</div>
+	<!--<div class="main main_login">
+		<div class="login">
+			<form id="form" method="post">
+													<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_user.png"></i>
+					<div>
+						<div class="input_box w_700 po_re"><input type="text" id="regtruename" name="regtruename" class="input" placeholder="输入真实姓名"></div>
+					</div>
+					                    <span class="code_box right">
+                    </span>
+									</div>
+				<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_sms.png"></i>
+					<div>
+						<div class="input_box w_700 po_re"><input type="text" id="regidcard" name="regidcard" class="input" placeholder="输入身份证号"></div>
+					</div>
+					                    <span class="code_box right">
+                    </span>
+									</div>
+													<div class="form_link clear">
+                    <span class="align-right right wb_100"><font color="red">为了资金安全和提现正确到账请您完成实名认证</font></span>
+				</div>
+								<div class="form_box form_eye po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_passj.png"></i>
+					<div class="w_900">
+						<input name="paypassword" id="paypassword" to_empty="1" type="password" class="input mima_dd " placeholder="请设置交易密码" >
+
+						<a class="eyes_box " data-show="1" href="javascript:void(0);"><i class="icon_eye right"></i></a>
+					</div>
+				</div>
+				<div class="form_box form_eye po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_passj.png"></i>
+					<div class="w_900">
+						<input name="repaypassword" id="repaypassword" to_empty="1" type="password" class="input mima_dd " placeholder="请设置重复交易密码" >
+
+						<a class="eyes_box " data-show="1" href="javascript:void(0);"><i class="icon_eye right"></i></a>
+					</div>
+				</div>
+								<div class="form_btn">
+					<input type="button" onclick="Update();" class="btn" name="login" id="login" value="下一步">
+				</div>
+				<div class="form_link clear">
+					<span class="gfs"><img src="/wap/images/login_icon_select.png" class="icon_select"><a>为保障您的资金安全，请务必牢记交易密码</a></span>
+				</div>
+			</form>
+		</div>
+	</div>-->
+</div>
+<script>
+	<!-- $('input').focus(function(){ -->
+		<!-- var t=$(this); -->
+		<!-- if(t.attr('type')=='text'||t.attr('type')=='password') -->
+			<!-- t.css({'box-shadow':'0px 0px 3px #1583fb','border':'1px solid #1583fb','color':'#333' }); -->
+		<!-- if(t.val()==t.attr('placeholder')) -->
+			<!-- t.val(''); -->
+	<!-- }); -->
+	<!-- $('input').blur(function(){ -->
+		<!-- var t=$(this); -->
+		<!-- if(t.attr('type')=='text'||t.attr('type')=='password') -->
+			<!-- t.css({'box-shadow':'none','border':'1px solid #e1e1e1','color':'#333' }); -->
+		<!-- if(t.attr('type')!='password'&&!t.val()) -->
+			<!-- t.val(t.attr('placeholder')); -->
+	<!-- }); -->
+	<!-- $('.reg_input_box input').each(function(i,d){ -->
+		<!-- $(d).focus(function(){ -->
+			<!-- var oRegMsg=$('#'+$(this).attr('id')+'-msg'); -->
+			<!-- oRegMsg.attr('class')=='form_explain_error'?oRegMsg.attr('class','form_explain').html(oRegMsg.attr('data-explain')).show():oRegMsg.show(); -->
+		<!-- }) -->
+		<!-- $(d).blur(function(){ -->
+			<!-- var oRegMsg=$('#'+$(this).attr('id')+'-msg'); -->
+			<!-- $(this).parent().find('.form_explain').hide(); -->
+		<!-- }) -->
+	<!-- }) -->
+	<!-- var mbTest_username=/^(?![^a-zA-Z]+$)(?!\D+$).{5,15}$/; -->
+	<!-- var mbTest_password=/^[a-zA-Z0-9_]{5,15}$/; -->
+	//输入框消息
+	function formMsg(o, status, msg){
+		$('#'+o+'-msg').attr('class', 'form_explain_'+(status?'pass':'error')).html((typeof msg == 'undefined'? '': msg)+'<em></em>').show();
+		return true;
+	}
+
+
+	function Update(){
+		var truename=$("#regtruename").val();
+		var idcard=$("#regidcard").val();
+		var paypassword=$("#paypassword").val();
+		var repaypassword=$("#repaypassword").val();
+
+		if(paypassword==""||paypassword==null){
+			<!-- formMsg('paypassword', 0, '请输入交易密码'); -->
+			layer.tips('请输入交易密码','#paypassword',{tips:3});
+			return false;
+		}
+		if(repaypassword==""||repaypassword==null){
+			<!-- formMsg('repaypassword', 0, '请输入确认密码'); -->
+			layer.tips('请输入确认密码','#repaypassword',{tips:3});
+			return false;
+		}
+		if(paypassword!=repaypassword){
+			<!-- formMsg('repassword', 0, '确认密码错误'); -->
+			layer.tips('确认密码错误','#repaypassword',{tips:3});
+			return false;
+		}
+
+		$.post("/Login/upregister2new",{paypassword:paypassword,repaypassword:repaypassword,truename:truename,idcard:idcard},function(data){
+			if(data.status==1){
+				layer.msg(data.info,{icon:1});
+				window.location='/Login/register4';
+			}else{
+				layer.msg(data.info,{icon:2});
+				if(data.url){
+					window.location=data.url;
+				}
+			}
+		},"json");
+	}
+</script>
+
+</body>
+</html>

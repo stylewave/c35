@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>编辑二维码</title>
+<link href="/wap/css/css.css" rel="stylesheet" />
+<script src="/wap/js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<div class="topz mgz"></div>
+<div class="top xi40 cen bai"><div class="icon2 fr"><!-- <a href="service.html"><img align="absmiddle" src="images/11_21.png"></a> --></div>编辑二维码<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div></div>
+<form action="{:url('User/upqrcode')}" enctype="multipart/form-data" method="post" >
+	<div class="mgz bgbai bai">
+		
+		<br>
+		<div class="pl20">支付宝收款二维码</div><br>
+		<div class="jieshou1 datum bgbai mg xi22 liuyuan_img" style="height: 235px">
+			<div class="liuyan_con">
+			<div class="liuyan_txt"><img src="/wap/images/upload.png" /></div>
+			<input type="file" id="upload_file1" name="upload_file1" class="liuyan_file" /></div>
+			<div><span id="alipayfilename"></span></div>
+	     </div>
+		<br>
+		<div class="pl20">微信收款二维码</div><br>
+		<div class="jieshou1 datum bgbai mg xi22 liuyuan_img" style="height: 235px">
+			<div class="liuyan_con">
+			<div class="liuyan_txt"><img src="/wap/images/upload.png" /></div>
+			<input type="file" id="upload_file0" name="upload_file0" class="liuyan_file" /></div>
+			<div><span id="weixinfilename"></span></div>
+		</div>
+		<!--<div class="jieshou1 datum bgbai mg xi22 pzimg"><span class="data_txt">上传凭证</span><span class="xisp xi16"><input type="file" name="file" class="file"></span></div>
+		-->
+		<div class="denglu2 mgz cen">
+			
+		<input type="submit" value="上传二维码" class="an1 xi22 bai">
+		</div>
+		
+	</div>
+</form>
+<div class="buylist_menuz mgz"></div>
+<script src="js/mjs.js"></script>
+<script>
+$(function(){
+	$('#upload_file1').change(function(){
+		$('#alipayfilename').text($('#upload_file1').val().substr($('#upload_file1').val().lastIndexOf("\\")+1));
+		
+	});
+	$('#upload_file0').change(function(){
+		$('#weixinfilename').text($('#upload_file0').val().substr($('#upload_file0').val().lastIndexOf("\\")+1));
+	});
+})
+</script>
+</body>
+</html>

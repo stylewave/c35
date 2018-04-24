@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{$data.title}</title>
+	<meta name="keywords" content="{$data.title}" />
+	<meta name="description" content="{$data.title}" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	
+    <!--<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>-->
+
+    <link href="/wap/css/css.css" rel="stylesheet" />
+    <script src="/wap/js/jquery-1.7.2.min.js"></script>
+    <script>
+        $(function () {
+            setTimeout("", 2000);
+            $('.xi19 p span').removeAttr("style");
+        })
+    </script>
+	
+		
+</head>
+<body>
+    <div class="topz mgz"></div>
+    <div class="top xi40 cen bai">新闻公告<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div></div>
+    <div class="news_list1 mgz"><img align="absmiddle" src="/wap/images/5_02.jpg" width="640" /></div>
+    <div class="news_show bgbai mg xi19 bai">
+        {$data['content']}
+    </div>
+
+    <!--底部导航 -->
+    <div class="buylist_menu xi20 cen">
+        <ul>
+            <li class="bg1"><a href="/index/index.html">首页</a></li>
+            <li class="bg2hover"><a href="/Article/index/id/21">资讯</a></li>
+            <li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+            <li class="bg4"><a href="/finance/index.html">我的</a></li>
+        </ul>
+        <!--判断hover-->
+    </div>
+    <div class="buylist_menuz mgz"></div>
+  
+
+    </body>
+</html>

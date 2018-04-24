@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>财务中心</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" href="/wap/css/css.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+	<!--新添加-->
+	<link href="/wap/css/css.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+			.an1{ display: block; }
+		</style>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="mgz2 bgbai personal clearfix">
+		<div class="personal_title cen clearfix">
+			<h1>
+				个人中心
+			</h1>
+		</div>
+		<div class="personal_center xi20 clearfix">
+			<div class="personal_nav1 clearfix">
+				<div class="personal_center_img">
+					<p><a><img align="absmiddle" src="/wap/images/img4.jpg" /></a></p>
+					<!--<p><a href="" class="bai">13562547813</a></p>-->
+					<p><a href="" class="bai">账户：{$Think.session.userName}</a></p>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="bgbai mgz">
+		<div class="mgz bgbai ">
+			<div class="wallet3 cen clearfix hui4">
+				<ul>
+					<li class="col-4">可用<p class=" xi30 bai">{$coinList['fcc']['xnb']|NumToStr}</p></li>
+					<li class="col-4">冻结<p class=" xi30 bai">{$coinList['fcc']['xnbd']|NumToStr}</p></li>
+					<li class="brnone col-4">信用值<p class=" xi30 bai">{$integral|NumToStr}</p></li>
+				</ul>
+			</div>
+		</div>
+		<div class="mgz bgbai xi20 monly2 mt20 ">
+			<ul class="clearfix md20 bgbai4">
+
+				<a href="/finance/myzr/"><li><i class="monly_icon1"></i><p class="hui5">我要接收</p></li></a>
+				<a href="/finance/myzc/"><li><i class="monly_icon2"></i><p class="hui5">我要发送</p></li></a>
+				<a href="/finance/mywt/"><li class="brnone"><i class="monly_icon3"></i><p class="hui5">委托管理</p></li></a>
+				<a href="/finance/mycj/"><li class="bbnone"><i class="monly_icon4"></i><p class="hui5">成交查询</p></li></a>
+				<!--<a href="/finance/myjp/"><li class="bbnone"><i class="monly_icon5"></i><p class="hui5">我的奖励</p></li></a>-->
+				<!--<a href="/Article/index/id/21/"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">网站公告</p></li></a>-->
+				<a href="/User/bank/"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">我的银行卡</p></li></a>
+
+				<!--<a href="/finance/mytj/"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">推荐用户</p></li></a>-->
+				<!--<a href="/finance/mywd/"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">我的推荐</p></li></a>-->
+				 <a href="/User/qrcode"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">收款二维码</p></li></a>
+				<a href="/User/index/"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">认证中心</p></li></a>
+				<a href="/User/paypassword/"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">交易密码</p></li></a>
+				<a href="/User/password/"><li class="bbnone brnone"><i class="monly_icon6"></i><p class="hui5">登录密码</p></li></a>
+			</ul>
+		</div>
+		<div class="bgbai" style="padding: .4rem">
+			<div class="cen" style="background: #1e88fe;line-height: 1.5rem;">
+				<a href="{:U('Login/loginout')}" style="color: #fff !important;font-size:.42rem;">安全退出</a>
+			</div>
+		</div>
+	</div>
+	<!--<div class="head head_white">
+		<div class="left logo">
+			&lt;!&ndash; <a href="/"><img src="/wap/images/logo.png"></a> &ndash;&gt;
+		</div>
+		<div class="title">我的资产</div>
+		<div class="right">
+			<a href="/Finance/details/"><img src="/wap/images/icon_set.png" class="icon_set"></a>
+		</div>
+	</div>-->
+	<!--<div class="main pb_0">
+		<div class="home_bg">
+			<div class="my_zichan1 mgz cen">
+				<div class="indexImg"><img src="/wap/img/tx3.jpg" /></div>
+				<div class="my_zichan1s mg2  xi30 bai">账户：{$Think.session.userName}</div>
+				<div class="my_zichan1x mg2 myhome xi22 bai">UID：{$Think.session.userId}</div>
+			</div>
+			<div class="my_zichan2 mgz cen mb0">
+				<ul>
+			    	<li class="white">
+						<div class="my_zichan2s mg2 xi22 hui" style="color: #fff">可用</div>
+						<div class="my_zichan2x mg2 xi30 bai">{$coinList['fcc']['xnb']|NumToStr}</div>
+					</li>
+					
+					<li>
+						<div class="my_zichan2s mg2 xi22 hui">冻结</div>
+						<div class="my_zichan2x mg2 xi30 bai">{$coinList['fcc']['xnbd']|NumToStr}</div>
+					</li>
+					<li>
+						<div class="my_zichan2s mg2 xi22 hui">信用值</div>
+						<div class="my_zichan2x mg2 xi30 bai">{$integral|NumToStr}</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+
+		<div class="mgz">
+			<div class="sgc_menu clearfix">
+			<ul >
+				<a href="/finance/myzr/"><li><i class="ico10"></i>我要接收</li></a>
+		        <a href="/finance/myzc/"><li><i class="ico2"></i>我要发送</li></a>
+		    	<a href="/finance/mywt/"><li><i class="ico1"></i>委托管理</li></a>
+		        <a href="/finance/mycj/"><li><i class="ico12"></i>成交查询</li></a>
+		        <a href="/finance/myjp/"><li><i class="ico11"></i>我的奖励</li></a>
+
+		        <a href="/Article/index/id/21/"><li><i class="ico13"></i>网站公告</li></a>
+		        <a href="/User/bank/"><li><i class="ico4"></i>我的银行卡</li></a>
+		        <a href="/finance/mytj/"><li><i class="ico5"></i>推荐用户</li></a>
+		        <a href="/finance/mywd/"><li><i class="ico6"></i>我的推荐</li></a>
+		        <a href="/User/index/"><li><i class="ico7"></i>认证中心</li></a>
+		        <a href="/User/paypassword/"><li><i class="ico8"></i>交易密码</li></a>
+		        <a href="/User/password/"><li><i class="ico9"></i>登录密码</li></a>
+		    </ul>
+		    </div>
+		</div>
+		
+		<div class="quit cen" style="background: #fc461e;color: #fff">
+			<a href="{:U('Login/loginout')}" class="gfs white">安全退出</a>
+		</div>
+		<div class="user_nav" style="display: none;">
+        	<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mywt/">
+                    	<img src="/wap/images/user_icon_entrust.png" class="user_icon_nav left">
+                        <p>委托管理<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+                    </a>
+				</div>
+			</div>
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mycj/">
+						<img src="/wap/images/user_icon_trading.png" class="user_icon_nav left">
+						<p>成交查询<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mytj/">
+						<img src="/wap/images/user_icon_red.png" class="user_icon_nav left">
+						<p>推荐用户<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+						<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mywd/">
+						<img src="/wap/images/user_icon_red.png" class="user_icon_nav left">
+						<p>我的推荐<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+						<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/myjp/">
+						<img src="/wap/images/user_icon_red.png" class="user_icon_nav left">
+						<p>我的奖励<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+            <div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/Article/index/id/21/">
+						<img src="/wap/images/user_icon_notice.png" class="user_icon_nav left">
+						<p>网站公告<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>-->
+</div>
+<!--底部导航 -->
+<div class="buylist_menu xi20 cen">
+	<ul>
+		<li class="bg1"><a href="/index/index.html">首页</a></li>
+		<li class="bg2"><a href="/Article/index/id/21">资讯</a></li>
+		<li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+		<li class="bg4hover"><a href="/finance/index.html">我的</a></li>
+	</ul>
+	<!--判断hover-->
+</div>
+
+<div class="buylist_menuz mgz"></div>
+<script src="js/mjs.js"></script>
+</body>
+</html>

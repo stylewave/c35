@@ -1,0 +1,285 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>委托管理</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" href="/wap/css/css.css" type="text/css" />
+	<!--<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />-->
+	<!--<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />-->
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/dropload.css" />
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+		<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	  <script type="text/javascript" src="/Public/layer/layer.js"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+	<style>
+		.lib_Menubox ul{background:#141935;}
+		.lib_Menubox li.hover{background:#141935;color:#9098bc;}
+		.lib_Menubox li.hover span{background:#31395d;padding:15px 60px;width:100%;border-radius:10px;}
+		.lib_Menubox li{width:33.333%;color:#8d93b3;}
+	</style>
+	<style>
+		.top{height: auto}
+	</style>
+</head>
+<body>
+<div class="container outer" ontouchstart="">
+	<div class="topz mgz"></div>
+	<div class="top xi40 cen bai"><div class="icon2 fr"></div>委托记录
+		<input type="hidden" id="status" value="<?php echo ($status); ?>" />
+		<input type="hidden" id="market" value="<?php echo ($market); ?>" />
+		<input type="hidden" id="type" value="<?php echo ($type); ?>" />
+		<div class="topl"><a href="/finance/index"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div>
+	</div>
+
+	<div id="lib_Tab1" class="mgz global oneIndex bgbai" style="overflow: auto;margin-top: 1.33rem">
+		<div class="lib_Contentbox lib_tabborder " style="height:100%;">
+			<input type="hidden" value="2" id="pageys" />
+			<div id="con_one_1">
+				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="news_list2 clearfix xi22 hui4 excIcon2">
+						<div class="col-12">
+							<div class="col-1 f">
+								<?php if(($vo["type"]) == "1"): ?><span class="exchang_icon1 excRed"></span><?php else: ?><span class="exchang_icon1 excGreen"></span><?php endif; ?>
+							</div>
+							<div class="col-7 r">
+								<div class="news_list2rs mg2 "><?php if(($vo["type"]) == "1"): ?>买入<?php else: ?>卖出<?php endif; ?></div>
+								<div class="news_list2rx mg2 xi18 hui"><span><?php echo (date('m-d H:i:s',$vo["addtime"])); ?></span></div>
+							</div>
+							<div class="col-3 xi20">
+								<!--<span class="fl col-5">金额</span><span class="fr col-5 bai txt_r1"></span>-->
+								<span class="fl col-5">价格</span><span class="fr col-5 bai txt_r1">￥<?php echo (NumToStr($vo['price'])); ?></span>
+								<span class="fl col-5">数量</span><span class="fr col-5 bai txt_r1"><?php echo (NumToStr($vo['num'])); ?></span>
+							</div>
+							<div class="col-1">
+								<i class="fa fa-sort-desc bai fr"></i>
+							</div>
+						</div>
+						<div class="col-12 excIcon3 xi18">
+            	<span>
+					<?php if(($vo["status"]) == "0"): if(($vo["type"]) == "1"): ?><!-- 买入 -->
+							<?php if(($vo["status1"]) == "1"): ?><a class="fukuan orange" id="<?php echo ($vo["id"]); ?>" href="javascript:fukuan(<?php echo ($vo["id"]); ?>);"> 确认付款</a><?php endif; ?>
+							<?php if(($vo["status1"]) == "2"): ?>待卖家确认<?php endif; ?>
+							<?php else: ?><!-- 卖出 -->
+
+							<?php if(($vo["status1"]) == "1"): ?>待买家付款<?php endif; ?>
+
+							<?php if(($vo["status1"]) == "2"): ?><a class="pipei orange" id="<?php echo ($vo["id"]); ?>" href="javascript:shoukuan(<?php echo ($vo["id"]); ?>);">确认收款</a><?php endif; endif; endif; ?>
+										<?php if(($vo["status"]) == "1"): ?>已完成<?php endif; ?>
+										<?php if(($vo["status"]) == "2"): ?>已撤销<?php endif; ?>
+            	<?php if(($vo["type"]) == "1"): ?><!-- 买入 -->
+					<a href="/user/bankinfo?id=<?php echo ($vo['buyuserid']); ?>/">汇款信息							</a><?php endif; ?>
+                <!--<a href="#">删除</a>-->
+                </span>
+						</div>
+					</div><?php endforeach; endif; else: echo "" ;endif; ?>
+
+			</div>
+
+
+		</div>
+	</div>
+	<div class="buylist_menuz mgz"></div>
+	<!--头部-->
+	<!--<div class="head head_white">
+		<div class="left"><a onClick="window.history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+		<div class="title">
+			委托记录
+			<input type="hidden" id="status" value="<?php echo ($status); ?>" />
+			<input type="hidden" id="market" value="<?php echo ($market); ?>" />
+			<input type="hidden" id="type" value="<?php echo ($type); ?>" />
+		</div>
+		<div class="right"></div>
+	</div>-->
+	<!--<div class="main pb_0 inner" style="height:100%;" >
+		<div class="mytrab_con pb_0">
+			<div class="list_tab mytrab_con_list">
+				<ul class="list_tab_con list_mytrad_con clear lm_tab_1" style="width:14rem !important;">
+					<?php if(is_array($market_list)): $ke = 0; $__LIST__ = $market_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($ke % 2 );++$ke;?><li id="<?php echo ($ke); ?>" <?php if(($market) == $vo['name']): ?>class='hover list_1'<?php endif; ?>>
+							<a href="/Finance/mywt/type/0/market/<?php echo ($vo['name']); ?>/">
+								<?php echo ($coin_list[$vo['xnb']]['title']); ?>
+							</a>
+						</li><?php endforeach; endif; else: echo "" ;endif; ?>
+				</ul>
+			</div>
+		</div><input type="hidden" value="2" id="pageys" />
+		<div class="lm_tab_list_1">
+			<div class="mytrad_con list_1 pb_0 lists">
+			<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="wallet_box">
+					<div class="margin_lbian">
+						<div class="wallet_box1 withdraw_box1 po_re">
+							<div class="withdraw_box1_l left">
+								<p class="hui_d">
+									委托价格：</span>￥<?php echo (NumToStr($vo['price'])); ?>
+								</p>
+								<p class="hui_d"><?php echo (date('m-d H:i:s',$vo["addtime"])); ?></p>
+							</div>
+							<span class="right orange">
+								<?php if(($vo["type"]) == "1"): ?>买入<?php else: ?>卖出<?php endif; ?>
+							</span>
+						</div>
+						<div class="wallet_box2 withdraw_box2">
+							<ul>
+								<li><span class="hui_d fz_3-6">数量：</span><?php echo (NumToStr($vo['num'])); ?></li>
+								<li><span class="hui_d fz_3-6">成交数量：</span><?php echo (NumToStr($vo['deal'])); ?></li>
+								<li>
+									<span class="hui_d">
+										<?php if(($vo["status"]) == "0"): if(($vo["type"]) == "1"): ?>&lt;!&ndash; 买入 &ndash;&gt;
+										    <?php if(($vo["status1"]) == "1"): ?><a class="fukuan orange" id="<?php echo ($vo["id"]); ?>" href="javascript:fukuan(<?php echo ($vo["id"]); ?>);"> 确认付款</a><?php endif; ?>
+										    <?php if(($vo["status1"]) == "2"): ?>待卖家确认<?php endif; ?>
+											<?php else: ?>&lt;!&ndash; 卖出 &ndash;&gt;
+
+											<?php if(($vo["status1"]) == "1"): ?>待买家付款<?php endif; ?>
+
+                                            <?php if(($vo["status1"]) == "2"): ?><a class="pipei orange" id="<?php echo ($vo["id"]); ?>" href="javascript:shoukuan(<?php echo ($vo["id"]); ?>);">确认收款</a><?php endif; endif; endif; ?>
+										<?php if(($vo["status"]) == "1"): ?>已完成<?php endif; ?>
+										<?php if(($vo["status"]) == "2"): ?>已撤销<?php endif; ?>
+									</span>
+								</li>
+								<li>
+									<span class="hui_d">
+											<?php if(($vo["type"]) == "1"): ?>&lt;!&ndash; 买入 &ndash;&gt;
+												<a href="/user/bankinfo?id=<?php echo ($vo['buyuserid']); ?>/">汇款信息							</a><?php endif; ?>
+									</span>
+								</li>
+								
+							</ul>
+						</div>
+						
+					</div>
+				</div><?php endforeach; endif; else: echo "" ;endif; ?>
+		  </div>
+		</div>
+	</div>-->
+</div>
+<script src="js/mjs.js"></script>
+<script src="/wap/js/dropload/zepto.min.js"></script>
+<script src="/wap/js/dropload/dropload.min.js"></script>
+<script>
+var pageys=document.getElementById("pageys").value;
+var type=document.getElementById("type").value;
+var status=document.getElementById("status").value;
+var market=document.getElementById("market").value;
+$(function(){
+    var dropload = $('.inner').dropload({
+        domDown : {
+            domClass   : 'dropload-down',
+            domRefresh : '<div class="dropload-refresh" id="zwsj">↑上拉加载更多</div>',
+            domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+            domNoData  : '<div class="dropload-noData">暂无数据</div>'
+        },
+        loadDownFn : function(me){
+            $.ajax({
+                type: 'GET',
+                url: "<?php echo U('getLazywt');?>",
+				data:{"type":type,"market":market,"status":status,"page":document.getElementById("pageys").value},
+                dataType: 'json',
+                success: function(data){
+					var result = '';
+					if(data['page']==0){
+						me.noData();
+					}else{
+						result +=data['content'];
+					}
+					document.getElementById("pageys").value=data['page'];
+					 setTimeout(function(){
+                        $('.lists').append(result);
+                        // 每次数据加载完，必须重置
+                        dropload.resetload();
+                    },1000);
+                },
+                error: function(xhr, type){
+                    //alert('信息异常，请刷新后重试!');
+                    // 即使加载出错，也得重置
+                    dropload.resetload();
+                }
+            });
+        }
+    });
+});
+</script>
+<script>
+    var trans_lock = 0;
+	var market=$("#market").val();
+	$("#type-selectTest,#market-selectTest").change(function(){
+		var type=$("#type-selectTest option:selected").val();
+		
+		window.location='/Finance/mywt/type/'+type+'/status/'+status+'/market/'+market+'.html';
+	});
+	$(function () {
+		xuetong.show_tab(1);
+		setTimeout(function(){
+			$('body,html').animate({scrollTop: 0}, 0);
+		},1)
+
+
+	
+    
+    $('.buycancel').click(function(){
+        $.post("<?php echo U('Trade/ofcbuy_chexiao');?>",{id : $(this).attr('id'), },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='<?php echo U('Finance/mywt');?>'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+    });
+
+
+	});
+
+	function	 fukuan(id) {
+
+		 $.post("<?php echo U('Trade/ofcfukuan');?>",{id : id, },function(data){
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='<?php echo U('Finance/mywt');?>'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+	}
+
+
+	function shoukuan(id) {
+		if(trans_lock){
+            layer.msg('<?php echo L('finance_repeat');?>',{icon : 2 });
+            return;
+        }
+        trans_lock = 1;
+        layer.load(2);
+        //此处演示关闭
+        setTimeout(function(){
+          layer.closeAll('loading');
+          trans_lock = 0;
+        }, 10000);
+    
+    
+        $.post("<?php echo U('Trade/upTrade2');?>",{id : id, },function(data){
+            layer.closeAll('loading');
+            trans_lock = 0;
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.setTimeout("window.location='<?php echo U('Finance/mywt');?>'",1000);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+	}
+</script>
+</body>
+</html>

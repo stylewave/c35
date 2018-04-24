@@ -1,0 +1,73 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>收款二维码</title>
+<link href="/wap/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+</head>
+<style>
+.lib_Menubox{width:285px;margin:auto;border-radius:12px;border:1px solid #0296ff;height:52px;line-height:52px;}
+.lib_Menubox ul{background:none;}
+.lib_Menubox li{width:50%;height:52px;line-height:52px;background:#0296ff;color:#fff;}
+.lib_Menubox #one1{border-radius:10px 0  0  10px;}
+.lib_Menubox #one2{border-radius:0 10px 10px 0;}
+.lib_Menubox li.hover{background:none;color:#0296ff;}
+</style>
+<body>
+<div class="topz mgz"></div>
+<div class="top xi40 cen bai"><div class="icon2 fr"><a href="editQR.html">+</a></div>收款二维码<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div></div>
+
+<div class="mgz bgbai">
+<br>
+<div class="lib_Menubox libbox2 lib_tabborder">
+    <ul class="xi22">
+       <a href="javascript:;" id="one1"><li>支付宝</li></a>
+       <a href="javascript:;" id="one2" ><li class="hover">微信</li></a>
+    </ul>
+</div>
+</div>
+
+<div class="mgz bgbai">
+	<div class="bgbai mt20">
+	<div class="address3 clearfix">
+    	<br><br>
+    	
+		<?php if(!empty($user['weixin_qrcode'])): ?><div class="cen" id="divone1" style="display:none"><img src="<?php echo ($user['weixin_qrcode']); ?>" width="200px;"></div><?php endif; ?>
+		
+		<?php if(!empty($user['alipay_qrcode'])): ?><div class="cen" id="divone2"><img src="<?php echo ($user['alipay_qrcode']); ?>" width="200px;"></div><?php endif; ?>
+	</div>
+    </div>
+</div>
+<!--底部导航 -->
+<div class="buylist_menu xi20 cen">
+	<ul>
+		<li class="bg1"><a href="/index/index.html">首页</a></li>
+		<li class="bg2"><a href="/Article/index/id/21">资讯</a></li>
+		<li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+		<li class="bg4hover"><a href="/finance/index.html">我的</a></li>
+	</ul>
+	<!--判断hover-->
+</div>
+<script src="js/mjs.js"></script>
+<script>
+$('#one1').click(function(){
+	$('#one1 li').removeClass('hover');
+	$('#one2 li').addClass('hover');
+	
+	$('#divone1').hide();
+	$('#divone2').show();	
+});
+
+$('#one2').click(function(){
+	$('#one2 li').removeClass('hover');
+	$('#one1 li').addClass('hover');
+	
+	$('#divone2').hide();
+	$('#divone1').show();	
+});
+</script>
+
+</body>
+</html>

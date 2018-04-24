@@ -1,0 +1,203 @@
+<?php if (!defined('THINK_PATH')) exit();?>﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>新闻公告</title>
+<link href="/Public/Home1/css/css.css" rel="stylesheet" />
+<script src="/Public/Home1/js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<style>
+.hui4 {
+    color: #666666;
+}
+.lib_Menubox ul{}
+.lib_Menubox li.hover{background:-webkit-linear-gradient(top,#fb5a61,#fb5f5c 50%,#fc7149 51%,#fd7c3d);
+     background:-moz-linear-gradient(top,#fb5a61,#fb5f5c 50%,#fc7149 51%,#fd7c3d);
+    background:-ms-linear-gradient(top,#fb5a61,#fb5f5c 50%,#fc7149 51%,#fd7c3d);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;position: relative;}
+.lib_Menubox li.hover:before{ 
+    content: "";  /*:before和:after必带技能，重要性为满5颗星*/
+        display: block;
+        position: absolute;  /*日常绝对定位*/
+        bottom:0px;
+        width: 100px;
+        height: 2px;
+        background: #fb5a61;
+        left: 50%;
+        margin-left:-50px ;
+        
+}
+.lib_Menubox li.hover span{padding:15px 60px;width:100%;border-radius:10px;}
+.lib_Menubox li{width:33.333%;color:#666666;}
+</style>
+  <script>
+        function hrefLi(url) {
+            location.href = url;
+        }
+    </script>
+<div class="topz mgz"></div>
+<div class="top xi35 cen bai bgGradient">新闻公告<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/Public/Home1/images/1_02.png" /></a></div></div>
+
+<div id="lib_Tab1" class="mgz global oneIndex ">
+  <div class="lib_Menubox libbox2 lib_tabborder mb20 hui4 infoShadow2">
+    <ul class="xi26">
+      <!-- <li id="one1" onClick="setTab('one',1,3)" class="hover"><span>公告</span></li>
+      <li id="one2" onClick="setTab('one',2,3)"><span>新闻</span></li>
+      <li id="one3" onClick="setTab('one',3,3)"><span>帮助</span></li> -->
+      <li id="one1" onClick="hrefLi('/Article/index/id/21')" <?php if(($id) == "21"): ?>class='hover'<?php endif; ?>><span>公告</span></li>
+    <li id="one2" onClick="hrefLi('/Article/index/id/20')" <?php if(($id) == "20"): ?>class='hover'<?php endif; ?>><span>新闻</span></li>
+    <li id="one3" onClick="hrefLi('/Article/index/id/22')" <?php if(($id) == "22"): ?>class='hover'<?php endif; ?>><span>帮助</span></li>
+    </ul>
+  </div>
+  <div class="lib_Contentbox lib_tabborder bgbai mt20">
+    <div id="con_one_1">
+
+          <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="news_list2 clearfix">
+                        <a href="<?php echo U('Article/detail','id='.$vo['id']);?>">
+                            <div class="news_list2l f"><img align="absmiddle" src="/wap/images/5_05.jpg" width="129" height="78" /></div>
+                            <div class="news_list2r r">
+                                <div class="news_list2rs mg2 xi24"><?php echo ($vo["title"]); ?></div>
+                                <div class="news_list2rx mg2 xi20 hui"><span><?php echo (addtime($vo["addtime"])); ?></span></div>
+                            </div>
+                        </a>
+                    </div><?php endforeach; endif; else: echo "" ;endif; ?>
+            <div class="pages"><?php echo ($page); ?></div>
+
+      <!-- <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+    </div>
+    <div id="con_one_2" style="display:none">
+      <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">银联计划利用区块链技术来打造支付系统</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">银联计划利用区块链技术来打造支付系统</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">银联计划利用区块链技术来打造支付系统</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">银联计划利用区块链技术来打造支付系统</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+    </div>
+    <div id="con_one_3" style="display:none">
+      
+      <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div>
+        <div class="news_list2 clearfix">
+            <a href="news.html">
+            <div class="news_list2l f"><img align="absmiddle" src="/Public/Home1/images/5_05.jpg" width="129" height="78" /></div>
+            <div class="news_list2r r">
+                <div class="news_list2rs mg2 xi24">OFCcoin币行推出OFClink区块链金融网络</div>
+                <div class="news_list2rx mg2 xi20 hui"><span>2016-11-03 10:34</span></div>
+            </div>
+            </a>
+        </div> -->
+    </div>
+  </div>
+</div>
+
+
+
+<!--底部导航 -->
+<div class="buylist_menu xi20 cen">
+    <ul>
+            <li class="bg1"><a href="/index/index.html">首页</a></li>
+            <li class="bg2hover"><a href="/Article/index/id/21">资讯</a></li>
+            <li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+            <li class="bg4"><a href="/finance/index.html">我的</a></li>
+    </ul>
+    <!--判断hover-->
+</div>
+<div class="buylist_menuz mgz"></div>
+<script src="/Public/Home1/js/mjs.js"></script>
+</body>
+</html>

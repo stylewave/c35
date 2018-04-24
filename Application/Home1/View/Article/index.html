@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title>{:C('web_title')}</title>
+	<meta name="keywords" content="{:C('web_keywords')}" />
+	<meta name="description" content="{:C('web_description')}" />	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<!--
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	-->
+	
+	<link href="/wap/css/css.css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="/wap/js/jquery-1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+		
+	<style>
+.lib_Menubox ul{background:#141935;}
+.lib_Menubox li.hover{background:#141935;color:#9098bc;}
+.lib_Menubox li.hover span{background:#31395d;padding:15px 60px;width:100%;border-radius:10px;}
+.lib_Menubox li{width:33.333%;color:#8d93b3;}
+</style>
+    <script>
+        function hrefLi(url) {
+            location.href = url;
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+	<!--头部
+	<div class="head head_white">
+		<div class="left">
+			<a href="/" ><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">资讯中心</div>
+		<div class="right"></div>
+	</div>-->
+	<!--头部-->
+	<div class="topz mgz"></div>
+	<div class="top xi35 cen bai">新闻公告
+		<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div>
+	</div>
+    <div id="lib_Tab1" class="mgz global oneIndex bgbai">
+        <div class="lib_Menubox libbox2 lib_tabborder mb20 hui4">
+            <ul class="xi22">
+                <li id="one1" onClick="hrefLi('/Article/index/id/21')" <eq name="id" value="21"> class='hover' </eq>><span>公告</span></li>
+                <li id="one2" onClick="hrefLi('/Article/index/id/20')" <eq name="id" value="20"> class='hover' </eq>><span>新闻</span></li>
+                <li id="one3" onClick="hrefLi('/Article/index/id/22')" <eq name="id" value="22"> class='hover' </eq>><span>帮助</span></li>
+            </ul>
+        </div>
+        <div class="lib_Contentbox lib_tabborder ">
+            <div id="con_one_1">
+                <volist name="list" id="vo">
+                    <div class="news_list2 clearfix">
+                        <a href="{:U('Article/detail','id='.$vo['id'])}">
+                            <div class="news_list2l f"><img align="absmiddle" src="/wap/images/5_05.jpg" width="129" height="78" /></div>
+                            <div class="news_list2r r">
+                                <div class="news_list2rs mg2 xi18">{$vo.title}</div>
+                                <div class="news_list2rx mg2 xi15 hui"><span>{$vo.addtime|addtime}</span></div>
+                            </div>
+                        </a>
+                    </div>
+                </volist>
+                <div class="pages">{$page}</div>
+            </div>
+        </div>
+    </div>	
+</div>
+
+
+<!--底部导航 -->
+<div class="buylist_menu xi20 cen">
+    <ul>
+        <li class="bg1"><a href="/index/index.html">首页</a></li>
+        <li class="bg2hover"><a href="/Article/index/id/21">资讯</a></li>
+        <li class="bg3"><a href="/finance/mycj.html">明细</a></li>
+        <li class="bg4"><a href="/finance/index.html">我的</a></li>
+    </ul>
+    <!--判断hover-->
+</div>
+<div class="buylist_menuz mgz"></div>
+
+</body>
+</html>

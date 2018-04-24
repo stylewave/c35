@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title>我的银行卡</title>
+			<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+  <!--   <link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />-->
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/cityselect.js"></script>
+		<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<!--新添加-->
+<link href="/wap/css/css.css" rel="stylesheet" />
+<!--endn 新添加-->
+<style type="text/css">
+.form_icon{background: none}
+.yzm_sms{border-color: #1b82d1;color: #1b82d1;}
+.sol-12{width:100%;}
+.form_icon{   }
+.form_box{height: auto;}
+</style>
+<div class="container">
+	<div class="topz mgz"></div>
+	<div class="top xi40 cen bai"><div class="icon2 fr"></div>我的银行卡<div class="topl"><a href="/finance/index"><img align="absmiddle" src="/wap/images/1_02.png" /></a></div></div>
+
+    <div class="mgz bai bgbai">
+        <div class="mgz2"><span class="bank1 hui">请绑定持卡人本人的银行卡</span></div>
+
+        <form id="form" name="form">
+            <div class="jieshou1 datum bgbai  xi24"><span class="data_txt">持卡人</span><span class="xisp fl "><input name="" type="text" class="bd5 xi24 hui4" placeholder="请输入持卡人姓名" value=""></span></div>
+            <div class="jieshou1 datum bgbai  xi24">
+                <span class="data_txt">选择银行：</span>
+                <span class="xisp fl ">
+                    <select  name="bank"  id="bank_bank" class="selectS hui4">
+                        <volist name="UserBankType" id="vo">
+                            <option value="{$vo['title']}">{$vo['title']}</option>
+                        </volist>
+                    </select>
+                </span>
+            </div>
+            <div class="jieshou1 datum bgbai  xi24">
+                <span class="data_txt">银行名称：</span>
+                <span class="xisp fl ">
+                    <input id="bank_name" type="text" class="bd5 xi24 hui4" placeholder="请输入银行名称" value="">
+                </span>
+            </div>
+            <div class="jieshou1 datum bgbai  xi24">
+                <span class="data_txt">开户省市：</span>
+                <span class="xisp fl " id="city_1">
+                    <select class="selectS hui4 prov" id="bank_bankprov" name="prov" style="width: 110px;"></select>
+                    <select class="city selectS hui4" id="bank_bankcity" name="city" style="width: 110px; display: none;"></select>
+                </span>
+            </div>
+            <div class="jieshou1 datum bgbai  xi24">
+                <span class="data_txt">开户支行：</span>
+                <span class="xisp fl ">
+                    <input id="bank_bankaddr" name="bank_bankaddr" type="text" class="bd5 xi24 hui4" placeholder="请输入详细的开户支行名称" value="">
+                </span>
+            </div>
+
+            <div class="jieshou1 datum bgbai  xi24">
+                <span class="data_txt">银行卡号：</span>
+                <span class="xisp fl ">
+                    <input id="bank_bankcard" name="bank_bankcard" type="text" class="bd5 xi24 hui4" placeholder="请输入银行卡号" value="">
+                </span>
+                <span class="fr">
+                    <a href="javascript:void(0)" onclick="delBankCard()" class="fr">
+                        <img src="/wap/images/icon9.png" width="36" />
+                    </a>
+                </span>
+            </div>
+
+            <div class="jieshou1 datum bgbai  xi24">
+                <span class="data_txt">交易密码：</span>
+                <span class="xisp fl ">
+                    <input type="password" id="bank_paypassword" name="bank_paypassword" class="bd5 xi24 hui4" placeholder="请输入交易密码" value="">
+                </span>
+                <span class="fr">
+                    <a href="javascript:void(0)" onclick="delPayWord()" class="fr">
+                        <img src="/wap/images/icon9.png" width="36" />
+                    </a>
+                </span>
+            </div>
+            <br>
+            <!--<div class="jieshou1 datum bgbai xi24 mt20"><span class="data_txt">手机号</span><span class="xisp fl"><input name="" type="text" class="bd5 xi24 hui4" placeholder="" value="185******31"></span><span class="fr"><a href="#" class="fr"><img src="/wap/images/icon9.png" width="36" /></a></span></div>
+
+            <div class="jieshou1 datum bgbai  xi24 "><span class="data_txt">校验码</span><span class="xisp fl"><input name="" type="text" class="bd5 xi24" placeholder="填写校验码"></span><span><button class="btn1 xi24">发送验证码</button></span></div>-->
+
+            <div class="denglu2 mgz cen"><input onclick="Update()"  name="addbank" id="addbank"  type="button" class="an1 xi26 bai" value="提交" ></div>
+            <div class="form_link red">
+                <img src="/wap/images/login_icon_tan.png" class="icon_tan">为了您能快速提现，请详细填写您的银行卡信息作为默认提款账号,请仔细核对您的银行卡信息和持卡人信息等内容
+            </div>
+        </form>
+    </div>
+	<div class="mgz2  mg xi24">
+		<div class="bank_list">
+			<ul>
+                <div class="margin_bian" style="color: #fff;margin-top: 10px">银行卡帐户（{$UserBankcount}）</div>
+				<li>
+					<div class="bank_img"><img src="/wap/images/bank1.png" /></div>
+					<volist name="UserBank" id="vo">
+						<div class="bank_txt">
+							<p class="xi28">{$vo.bank}</p>
+							<p class="xi20">{$vo.name}</p>
+							<p class="xi20">{$vo.bankcard}</p>
+						</div>
+					</volist>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="buylist_menuz mgz"></div>
+	<!--头部-->
+	<!--<div class="head head_white">
+		<div class="left">
+			<a href="/finance/index"  ><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">添加银行卡</div>
+		<div class="right">
+		</div>
+	</div>-->
+	<!--<div class="main pb_0">
+		<div class="margin_lbian">
+			<form id="form" name="form">
+
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">持卡人：</i>
+					<div class="sol-12">
+						<input type="text" class="input hui_a" value="" placeholder="请输入持卡人姓名">
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   red">选择银行：</i>
+					<div class="sol-12">
+						<select  name="bank"  id="bank_bank" class="select hui">
+						<volist name="UserBankType" id="vo">
+						<option value="{$vo['title']}">{$vo['title']}</option>
+						</volist>
+						</select>
+					</div>
+				</div>
+				<div   id="bank_input" class="form_box po_re findpw_tan" >
+					<i class="form_icon   sol-12 red">银行名称：</i>
+					<div id="bank_input_val sol-12">
+						<div class="input_box po_re w_740"><input id="bank_name" type="text" class="input"></div>
+					</div>
+				</div>
+
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">开户省市：</i>
+					<div class="sol-12">
+
+						<span class="controls hui" id="city_1">
+	 <select class="select prov" id="bank_bankprov" name="prov" style="width: 110px;"></select>
+	 <select class="city select" id="bank_bankcity" name="city" style="width: 110px; display: none;">
+	 </select></span>
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">开户支行：</i>
+					<div class="sol-12">
+						<div class="input_box po_re w_740"><input type="text" id="bank_bankaddr" name="bank_bankaddr" class="input" placeholder="请输入详细的开户支行名称"></div>
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">银行卡号：</i>
+					<div class="sol-12">
+						<div class="input_box po_re w_740"><input type="text" id="bank_bankcard" name="bank_bankcard" class="input" placeholder="请输入银行卡号"></div>
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon   sol-12 red">交易密码：</i>
+					<div class="sol-12">
+						<div class="input_box po_re w_740"><input type="password" id="bank_paypassword" name="bank_paypassword" class="input" placeholder="请输入交易密码"></div>
+					</div>
+				</div>
+				<div class="form_btn">
+					<input type="button" class="btn" onclick="Update()"  name="addbank" id="addbank" value="确认添加">
+				</div>
+				<div class="form_link red">
+					<img src="/wap/images/login_icon_tan.png" class="icon_tan">为了您能快速提现，请详细填写您的银行卡信息作为默认提款账号,请仔细核对您的银行卡信息和持卡人信息等内容
+				</div>
+			</form>
+		</div>
+		<div class="add_bank">
+			<div class="bc_f8 hui_bg fz_4">
+				<div class="margin_bian">银行卡帐户（{$UserBankcount}）</div>
+				<volist name="UserBank" id="vo">
+				<div class="wallet_box">
+				<div class="margin_lbian">
+					<div class="wallet_box1 withdraw_box1 po_re">
+						<div class="withdraw_box1_l left">
+							<p class="hui_d">{$vo.bank}[{$vo.bankcard}]</p>
+							<p class="hui_d">{$vo.addtime|addtime}</p>
+						</div>
+						<span class="right orange">{$vo.name}
+						&lt;!&ndash; &nbsp;&nbsp;<a class="cancel" href="javascript:void(0)" onclick="UpdateB({$vo['id']})">删除</a> &ndash;&gt;
+						</span>
+					</div>
+					<div class="wallet_box2 withdraw_box2">
+						<ul>
+							<li><span class="hui_d fz_3-6">省份：</span>{$vo.bankprov}</li>
+							<li><span class="hui_d fz_3-6">城市：</span>{$vo.bankcity}</li>
+							<li><span class="hui_d fz_3-6">支行：</span>{$vo.bankaddr}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			</volist>
+
+
+			</div>
+					</div>
+	</div>-->
+
+</div>
+<script type="text/javascript">
+	
+ $("#city_1").citySelect({nodata:"none",required:false});
+
+ $('#dialogBoxShadow').height($(document).height());
+ function closeAddress(){
+  $("#withdrawCnyAddress").hide();
+  $("#dialogBoxShadow").hide();
+ }
+ function showA(){
+  $("#withdrawCnyAddress").show();
+  $("#dialogBoxShadow").show();
+ }
+
+ function delBankCard() {
+     $('#bank_bankcard').val('');
+ }
+
+ function delPayWord() {
+     $('#bank_paypassword').val('');
+ }
+
+
+	
+ function Update(){
+  
+  var name=$('#bank_name').val();
+  var bank=$('#bank_bank option:selected').val();
+  var bankprov=$('#bank_bankprov option:selected').val();
+  var bankcity=$('#bank_bankcity option:selected').val();
+  var bankaddr=$('#bank_bankaddr').val();
+  var bankcard=$('#bank_bankcard').val();
+  var paypassword=$('#bank_paypassword').val();
+  
+  
+  if(name==""||name==null){
+  alert('请输入银行名称');
+   return false;
+  }
+  if(bankaddr==""||bankaddr==null){
+  alert('请输入开户支行');
+   return false;
+  }
+  if(bankcard==""||bankcard==null){
+  alert('请输入银行账号');
+   return false;
+  }
+  if(paypassword==""||paypassword==null){
+  alert('请输入交易密码');
+   return false;
+  }
+  $.post("{:U('User/upbank')}",{type:1,name:name,bank:bank,bankprov:bankprov,bankcity:bankcity,bankaddr:bankaddr,bankcard:bankcard,paypassword:paypassword},function(data){
+   if(data.status==1){
+   alert(data.info);
+    window.location="{:U('User/bank')}";
+   }else{
+	alert(data.info);
+    if(data.url){
+     window.location=data.url;
+    }
+   }
+  },"json");
+  
+ }
+
+ function UpdateB(id){
+  layer.config({
+   extend: 'extend/layer.ext.js'
+  });
+  layer.ready(function () {
+   //默认prompt
+   layer.prompt({
+    title: '输入交易密码，并确认',
+    formType: 1},function(val){
+    if (val) {
+     //需要执行的方法
+     $.post("{:U('User/delbank')}",{type:2,id:id,paypassword:val},function(data){
+      if(data.status==1){
+       layer.msg(data.info,{icon:1});
+       window.location="{:U('User/bank')}";
+      }else{
+       layer.msg(data.info,{icon:2});
+       if(data.url){
+        window.location=data.url;
+       }
+      }
+     },"json");
+
+
+    };
+   });
+
+  });
+
+
+ }
+</script>
+	<script language="javascript" src="/js/lang/cn/city.js?v=1.04"></script>
+</body>
+</html>

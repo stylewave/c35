@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>我的银行卡</title>
+<link href="__PUBLIC__/Home1/css/css.css" rel="stylesheet" />
+<script src="__PUBLIC__/Home1/js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body class="">
+<div class="topz mgz"></div>
+<div class="top xi40 cen bai bgGradient"><div class="icon2 fr"><a href="add_bank.html">+</a></div>我的银行卡<div class="topl"><a href="javascript:history.go(-1);"><img align="absmiddle" src="__PUBLIC__/Home1/images/1_02.png" /></a></div></div>
+
+<div class="mgz2  mg xi24">
+	<div class="bank_list">
+    	<ul>
+        	<li>
+            	<div class="bank_img"><img src="__PUBLIC__/Home1/images/bank1.png" /></div>
+                <div class="bank_txt">
+                	<!-- <p class="xi28">中国银行</p>
+                    <p class="xi20">穆申峰</p>
+                    <p class="xi20">**** **** **** 4832</p> -->
+                    <p class="xi28">{$vo.bank}</p>
+					<p class="xi20">{$vo.name}</p>
+					<p class="xi20">{$vo.bankcard}</p>
+                </div>
+            </li>
+            <!-- <li>
+            	<div class="bank_img"><img src="__PUBLIC__/Home1/images/bank2.png" /></div>
+                <div class="bank_txt">
+                	<p class="xi28">中国银行</p>
+                    <p class="xi20">穆申峰</p>
+                    <p class="xi20">**** **** **** 4832</p>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+</div>
+
+<!--底部导航 -->
+
+<div class="buylist_menuz mgz"></div>
+<script src="__PUBLIC__/Home1/js/mjs.js"></script>
+</body>
+</html>
